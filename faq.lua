@@ -4,7 +4,7 @@ local command = utils.formatCommand
 local text = utils.text
 
 local function rurl(...)
-  return { url(unpack(arg)) }
+  return { url(...) }
 end
 
 local function processNames(names, prefixes, suffixed)
@@ -46,6 +46,25 @@ local function plethora(page, pageName, names)
   return docBase("https://squiddev-cc.github.io/plethora/", "Plethora", { "plethora", "p" }, page .. ".html", pageName, names)
 end
 
+local function addHandler(item, handler)
+  -- We use a __call metamethod here, as that allows us to serialise the entry, while
+  -- still allowing a somewhat sane API.
+  item.handler = setmetatable({}, { __call = function(_, ...) return handler(...) end })
+  return item
+end
+
+local cct_methods = {}
+do
+  local response, err = http.get("https://tweaked.cc/index.json")
+  if not response then
+    printError("Cannot download CC:T documentation:" .. err)
+  else
+    local methods = json.decode(response.readAll())
+    response.close()
+    for k, v in pairs(methods) do cct_methods[k:lower()] = v end
+  end
+end
+
 return {
   -- Chatboxes
   {
@@ -54,7 +73,14 @@ return {
   },
 
   -- GitHubs
-  github("SquidDev-CC/CC-Tweaked", { "cctweaked", "cct" }),
+  addHandler(github("SquidDev-CC/CC-Tweaked", { "cctweaked", "cct" }), function(name)
+    if not cct_methods[name] then return nil end
+
+    local method = cct_methods[name]
+    local response = rurl(method.source, method.name)
+    if method.summary then table.insert(response, text(" - " .. method.summary:gsub("%s+", " "))) end
+    return { response = response, markdownResponse = utils.toMarkdown(response) }
+  end),
   github("SquidDev-CC/Plethora", { "plethora", "p" }),
   github("Vexatos/Computronics", "computronics"),
   github("kepler155c/opus", "opus"),
@@ -169,5 +195,5 @@ return {
   {
     names = { "switchmarket", "market", "auctions", "auction" },
     response = rurl("https://market.switchcraft.pw/", "SwitchMarket")
-  }
+  },
 }
