@@ -82,6 +82,7 @@ return {
     return { response = response, markdownResponse = utils.toMarkdown(response) }
   end),
   github("SquidDev-CC/Plethora", { "plethora", "p" }),
+  github("SquidDev-CC/cloud-catcher", { "cloudcatcher", "cloud-catcher", "cloud" }),
   github("Vexatos/Computronics", "computronics"),
   github("kepler155c/opus", "opus"),
   github("kepler155c/opus-apps", { "opus-apps", "milo" }),
@@ -101,10 +102,6 @@ return {
     names = { "wiki:old" },
     response = rurl("http://www.computercraft.info/wiki", "Old (outdated) ComputerCraft Wiki")
   },
-  {
-    names = { "websockets", "ws" },
-    response = rurl("https://github.com/SquidDev-CC/CC-Tweaked/wiki/http-library#httpwebsocketurl-string-headers-table-tablefalse-string", "http.websocket - CC:Tweaked GitHub")
-  },
   wiki("Special:RequestAccount", "Request account", "account"),
   wiki("Network_security", "Network security", { "network", "networksecurity", "netsec" }),
 
@@ -115,6 +112,7 @@ return {
   },
   wiki("Http.get", "http.get", "get", "http"),
   wiki("Http.post", "http.post", "post", "http"),
+  wiki("Http.websocket", "http.websocket", "websocket", "http"),
 
   -- Discords
   {
@@ -195,5 +193,9 @@ return {
   {
     names = { "switchmarket", "market", "auctions", "auction" },
     response = rurl("https://market.switchcraft.pw/", "SwitchMarket")
+  },
+  {
+    names = { "analytics", "graphs", "charts", "tps" },
+    response = rurl("https://analytics.switchcraft.pw/", "SwitchCraft Analytics")
   },
 }
