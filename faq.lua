@@ -198,4 +198,20 @@ return {
     names = { "analytics", "graphs", "charts", "tps" },
     response = rurl("https://analytics.switchcraft.pw/", "SwitchCraft Analytics")
   },
+  {
+    names = { "donate", "supporter", "support" },
+    response = rurl("https://donate.switchcraft.pw/", "Donate to SwitchCraft")
+  },
+  {
+    names = { "krist" },
+    response = rurl("https://krist.ceriat.net/", "Krist Homepage")
+  },
+  {
+    names = { "kristweb", "krist:web", "krist:wallet", "kristclub", "kristwallet" },
+    response = rurl("https://krist.club/", "Krist Web Wallet")
+  },
+  {
+    names = { "kristforge", "kristminer", "krist:miner", "krist:mine" },
+    response = rurl("https://github.com/tmpim/kristforge", "Kristforge GPU miner")
+  },
 }
