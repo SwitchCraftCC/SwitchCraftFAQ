@@ -30,7 +30,7 @@ local function sendDiscordMessage(player, entry, text)
     ["content"] = string.format(
       "%s**FAQ**/%s:\n%s",
       player and string.format("%s: ", player) or "",
-      entry, 
+      entry,
       text
     ),
     ["username"] = "SwitchCraft FAQ"
@@ -81,8 +81,8 @@ local function list(player)
   sendDiscordMessage(player, "faq:list", "View the FAQ online: https://faq.switchcraft.pw")
 end
 
-local function displayEntry(player, entry)
-  local name = entry.names[1]:lower()
+local function displayEntry(player, entry, names)
+  local name = (entry.names or names)[1]:lower()
   sendIngameMessage(player, name, entry.response)
   sendDiscordMessage(player, name, entry.markdownResponse)
 end
@@ -113,16 +113,22 @@ local function handleMessage(user, message)
       table.insert(parts, part)
     end
 
-    if #parts == 2 then
-      local entry = faq[parts[2]]
+    local original = faq[parts[2]]
 
-      if entry then
-        displayEntry(user, faq[parts[2]])
+    -- If this entry supplies a function, use that instead.
+    local entry = original
+    if #parts ~= 2 then
+      if entry and entry.handler then
+        entry = entry.handler(table.unpack(parts, 3))
       else
-        entryNotFound(user, parts[2])
+        return usage(user)
       end
+    end
+
+    if entry then
+      displayEntry(user, entry, original.names)
     else
-      usage(user)
+      entryNotFound(user, table.concat(parts, " ", 2))
     end
   end
 end
