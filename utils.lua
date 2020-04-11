@@ -70,6 +70,20 @@ function utils.formatCommand(command, suggest, text)
   }
 end
 
+function utils.formatCopy(text)
+  return {
+    text = text,
+    color = "gray",
+    clickEvent = {
+      action = "run_command",
+      value = "/~computercraft_copy " .. text
+    },
+    hoverEvent = utils.hoverText({
+      utils.text("Click to copy to clipboard."),
+    })
+  }
+end
+
 function utils.toMarkdown(textObjects)
   local out = ""
 

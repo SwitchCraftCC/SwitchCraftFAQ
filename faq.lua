@@ -154,6 +154,10 @@ return {
     names = { "opus" },
     response = rurl("http://www.computercraft.info/forums2/index.php?/topic/27810-opus-os/", "Opus OS")
   },
+  {
+    names = { "opus:pastebin", "opus:installer", "opus:p", "opus:i" },
+    response = { utils.formatCopy("pastebin run uzghlbnc") }
+  },
 
   -- Shops
   {
