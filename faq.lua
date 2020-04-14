@@ -222,4 +222,8 @@ return {
     names = { "kristforge", "kristminer", "krist:miner", "krist:mine" },
     response = rurl("https://github.com/tmpim/kristforge", "Kristforge GPU miner")
   },
+  {
+    names = { "kristql", "krist:query", "krist:sql" },
+    response = rurl("https://query.krist.ceriat.net/", "Krist SQL Query API")
+  },
 }
