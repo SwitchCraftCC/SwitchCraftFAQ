@@ -134,7 +134,7 @@ return {
   plethora("items/module-sensor", "Entity sensor", { "entitysensor", "entities", "entity", "sensor", "sense" }),
   plethora("items/module-kinetic", "Kinetic augment", { "kineticaugment", "kinetic", "k" }),
   plethora("items/module-chat", "Chat recorder", { "chatrecorder", "chat" }),
-  plethora("items/module-overlay", "Overlay glasses", { "overlayglasses", "overlay", "glasses" }),
+  plethora("items/module-glasses", "Overlay glasses", { "overlayglasses", "overlay", "glasses" }),
   plethora("items/redstone-integrator", "Redstone integrator", { "redstoneintegrator", "redstone", "integrator", "red" }),
   plethora("items/keyboard", "Keyboard", { "keyboard", "key" }),
   plethora("examples/laser-drill", "Laser drill", "drill"),
