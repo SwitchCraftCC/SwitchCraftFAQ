@@ -71,6 +71,10 @@ return {
     names = { "chatbox:docs", "chatbox", "chatbot", "cb" },
     response = rurl("https://chat.switchcraft.pw/docs", "Chatbox documentation")
   },
+  {
+    names = { "chatbox:nodejs", "chatbox:node", "chatbox:npm", "chatbox:js" },
+    response = rurl("https://www.npmjs.com/package/switchchat", "SwitchChat Node.JS module")
+  },
 
   -- GitHubs
   addHandler(github("SquidDev-CC/CC-Tweaked", { "cctweaked", "cct" }), function(name)
