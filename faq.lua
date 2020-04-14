@@ -86,6 +86,10 @@ return {
   github("Vexatos/Computronics", "computronics"),
   github("kepler155c/opus", "opus"),
   github("kepler155c/opus-apps", { "opus-apps", "milo" }),
+  github("SwitchCraftCC/SwitchCraftROM", { "rom" }),
+  github("SwitchCraftCC/SwitchCraftFAQ", { "faq" }),
+  github("SwitchCraftCC/SwitchMarket", { "switchmarket", "market" }),
+  github("SwitchCraftCC/KristPay", { "kristpay", "kp" }),
 
   -- Forums
   {
