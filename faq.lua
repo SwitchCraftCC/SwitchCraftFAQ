@@ -164,7 +164,7 @@ return {
   },
   {
     names = { "opus:pastebin", "opus:installer", "opus:p", "opus:i" },
-    response = { utils.formatCopy("pastebin run uzghlbnc") }
+    response = { utils.formatCopy("pastebin run UzGHLbNC") }
   },
 
   -- Shops
