@@ -206,10 +206,10 @@ return {
     names = { "switchmarket", "market", "auctions", "auction" },
     response = rurl("https://market.switchcraft.pw/", "SwitchMarket")
   },
-  {
+  --[[{
     names = { "analytics", "graphs", "charts", "tps" },
     response = rurl("https://analytics.switchcraft.pw/", "SwitchCraft Analytics")
-  },
+  },]]
   {
     names = { "donate", "supporter", "support" },
     response = rurl("https://donate.switchcraft.pw/", "Donate to SwitchCraft")
